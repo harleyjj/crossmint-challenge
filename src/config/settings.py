@@ -25,6 +25,6 @@ def get_settings() -> Settings:
             return Settings()
         except Exception:
             # If validation fails (e.g., missing CANDIDATE_ID), fall back to dummy
-            return Settings(candidate_id="dummy_id_for_testing")
+            return Settings(candidate_id="00000000-0000-0000-0000-000000000000")
     # Otherwise, create settings with a dummy candidate_id
-    return Settings(candidate_id="dummy_id_for_testing")
+    return Settings(candidate_id="00000000-0000-0000-0000-000000000000")
