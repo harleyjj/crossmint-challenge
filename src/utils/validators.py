@@ -26,7 +26,7 @@ def validate_candidate_id(candidate_id: str) -> str:
         raise ValidationError("Please set your actual candidate ID")
 
     # UUID format validation
-    uuid_pattern = r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    uuid_pattern = r"^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
     if not re.match(uuid_pattern, candidate_id):
         raise ValidationError(f"Invalid candidate ID format: {candidate_id}")
 

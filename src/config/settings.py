@@ -21,6 +21,10 @@ def get_settings() -> Settings:
     import os
 
     if os.path.exists(".env"):
-        return Settings()  # type: ignore[call-arg]
+        try:
+            return Settings()
+        except Exception:
+            # If validation fails (e.g., missing CANDIDATE_ID), fall back to dummy
+            return Settings(candidate_id="dummy_id_for_testing")
     # Otherwise, create settings with a dummy candidate_id
     return Settings(candidate_id="dummy_id_for_testing")
