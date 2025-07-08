@@ -111,7 +111,7 @@ jobs:
       continue-on-error: true
 
     - name: Upload bandit report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: always()
       with:
         name: bandit-report
@@ -146,7 +146,7 @@ jobs:
     - name: Test CLI commands
       run: |
         # Test preview command (should not make API calls)
-        python main.py preview --log-level DEBUG
+        python main.py --log-level DEBUG preview
 
         # Test help command
         python main.py --help
@@ -182,7 +182,7 @@ jobs:
         python -m build
 
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: dist-packages
         path: dist/

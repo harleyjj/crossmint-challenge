@@ -1,0 +1,40 @@
+# Flake8 configuration for enterprise-grade Python code quality
+# See: https://flake8.pycqa.org/en/latest/user/configuration.html
+
+[flake8]
+# Modern line length for readable code on today's screens
+max-line-length = 100
+
+# Reasonable complexity limit for maintainable functions
+max-complexity = 10
+
+# Error codes to ignore (with explanations):
+ignore =
+    # E203: Whitespace before ':' - conflicts with Black formatter
+    E203,
+    # E501: Line too long - we handle this with max-line-length setting
+    E501,
+    # W503: Line break before binary operator - PEP 8 now recommends this style
+    W503,
+    # F401: Imported but unused - common in __init__.py and development
+    F401
+
+# Directories and files to exclude from linting
+exclude =
+    .git,
+    __pycache__,
+    docs/source/conf.py,
+    old,
+    build,
+    dist,
+    .venv,
+    venv,
+    .eggs,
+    *.egg
+
+# Per-file ignore patterns for specific file types
+per-file-ignores =
+    # Test files: Allow unused imports (fixtures) and variables (test data)
+    tests/*:F401,F841
+    # Pytest config files: Allow unused imports for fixtures and test setup
+    */conftest.py:F401,F841
