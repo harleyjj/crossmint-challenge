@@ -2,7 +2,7 @@
 
 > **Enterprise-grade solution for creating megaverses with POLYanets, SOLoons, and comETHs**
 
-An advanced, production-ready implementation of the Crossmint coding challenge that demonstrates sophisticated software engineering practices including object-oriented design, dependency injection, comprehensive testing, and robust error handling.
+An advanced, production-ready implementation of the Crossmint coding challenge that demonstrates sophisticated software engineering practices including object-oriented design, dependency injection, comprehensive testing, robust error handling, and enterprise-grade CI/CD.
 
 ## 🌟 Features
 
@@ -18,6 +18,8 @@ An advanced, production-ready implementation of the Crossmint coding challenge t
 - **⚙️ Configuration Management** - Environment-based settings with validation
 - **📊 Progress Tracking** - Real-time progress with observer pattern
 - **🧪 Comprehensive Testing** - 100+ unit, integration, and end-to-end tests
+- **🚀 CI/CD Pipeline** - GitHub Actions with multi-platform testing
+- **🔍 Code Quality** - Automated linting, type checking, and security scanning
 
 ### **Operational Features**
 - **🚀 CLI Interface** - Multiple commands for different operations
@@ -29,7 +31,7 @@ An advanced, production-ready implementation of the Crossmint coding challenge t
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Python 3.8+
+- Python 3.8+ (tested on 3.8-3.12)
 - Your Crossmint candidate ID
 
 ### Installation
@@ -38,20 +40,21 @@ An advanced, production-ready implementation of the Crossmint coding challenge t
    ```bash
    git clone <repository-url>
    cd crossmint_challenge
+
+   # Install production dependencies
    pip install -r requirements.txt
+
+   # OR install development dependencies (recommended)
+   pip install -r requirements-dev.txt
    ```
 
 2. **Configure environment:**
    ```bash
-   # Copy environment template
-   cp .env.example .env
+   # Set your candidate ID as environment variable
+   export CANDIDATE_ID=your-uuid-here
 
-   # Edit .env with your candidate ID
-   CANDIDATE_ID=your-uuid-here
-   REQUEST_DELAY=1.0
-   MAX_RETRIES=3
-   GOAL_FILE=goal.json
-   LOG_LEVEL=INFO
+   # Or create a .env file
+   echo "CANDIDATE_ID=your-uuid-here" > .env
    ```
 
 3. **Run the application:**
@@ -62,6 +65,49 @@ An advanced, production-ready implementation of the Crossmint coding challenge t
    # Or preview the creation plan first
    python main.py preview
    ```
+
+### Alternative Installation (Package Mode)
+```bash
+# Install as editable package
+pip install -e .
+
+# Now you can use the crossmint command
+crossmint create
+crossmint preview
+```
+
+## 🛠️ Development Setup
+
+### Development Dependencies
+```bash
+# Install all development tools
+pip install -r requirements-dev.txt
+
+# Install pre-commit hooks
+pre-commit install
+```
+
+### Code Quality Tools
+The project uses several code quality tools:
+- **Black** - Code formatting
+- **isort** - Import sorting
+- **flake8** - Linting
+- **mypy** - Type checking
+- **bandit** - Security scanning
+- **safety** - Dependency vulnerability scanning
+
+```bash
+# Run all quality checks
+pre-commit run --all-files
+
+# Or run individual tools
+black src/ tests/
+isort src/ tests/
+flake8 src/ tests/
+mypy src/
+bandit -r src/
+safety check
+```
 
 ## 📖 Usage
 
