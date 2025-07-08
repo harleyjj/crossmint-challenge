@@ -1,0 +1,22 @@
+# Development and CI/CD dependencies
+# Include base requirements
+-r requirements.txt
+bandit>=1.7.0
+black>=23.0.0
+
+# Build tools
+build>=0.10.0
+
+# Code quality and linting
+flake8>=6.0.0
+isort>=5.12.0
+pytest-benchmark>=4.0.0  # Performance benchmarks
+pytest-timeout>=2.1.0  # Test timeouts
+
+# Additional testing tools
+pytest-xdist>=3.3.0  # Parallel testing
+
+# Security scanning
+safety>=2.3.0
+setuptools>=68.0.0
+wheel>=0.40.0
